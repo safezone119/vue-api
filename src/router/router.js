@@ -19,14 +19,17 @@ export const router = new VueRouter({
         {
             path:'/news',
             component: NewsView,
+            name: "news"
         },
         {
             path:'/jobs',
             component: JobsView,
+            name: "jobs",
         },
         {
             path:'/ask',
             component: AskView,
+            name: "ask",
         },
         {
             // USER VIEW // 유저 상세 페이지로 id 값을 파라미터로 넘김
