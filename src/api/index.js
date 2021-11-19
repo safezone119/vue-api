@@ -20,12 +20,22 @@ function getJobsList(){
 }
 
 // -------- ASK ---------- //
-function getAskList(){
+function getAsksList(){
 
     return axios.get(`${config.baseUrl}ask/1.json`) ;
 }
+// -------- USERINFO ---------- //
+function getUserInfo(userName){
+    return axios.get(`${config.baseUrl}user/${userName}.json`);
+}
+// -------- ASKDETAIL ---------- //
+function getAskInfo(id){
+    return axios.get(`${config.baseUrl}item/${id}.json`);
+}
 export{
     getNewsList,
-    getAskList,
-    getJobsList
+    getAsksList,
+    getJobsList,
+    getUserInfo,
+    getAskInfo
 }

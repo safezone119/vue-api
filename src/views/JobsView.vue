@@ -1,17 +1,23 @@
 <template>
   <div>
-    <div v-for="job in this.$store.state.jobs" :key="job.value">
-      {{ job.title }}
-    </div>
+    <ul class="list" v-for="item in fetchedJobs" :key="item.value">
+      <li>   
+        <p class="points">{{item.time_ago}}</p>   
+        <a :href="item.url">{{ item.title}}</a>
+        <small>{{item.time_ago}},{{ item.domain }}</small>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 export default {
-  data() {
-    return {
-      jobList: [],
-    };
+
+  computed: {
+    ...mapGetters({
+      fetchedJobs: "fetchedJobs"
+    })
   },
 
   created() {
@@ -20,4 +26,6 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.points{ width: 120px;}
+</style>

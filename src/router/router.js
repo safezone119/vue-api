@@ -4,10 +4,12 @@ import NewsView from '../views/NewsView.vue';
 import JobsView from '../views/JobsView.vue';
 import AskView from '../views/AskView.vue';
 import UserView from '../views/UserView.vue';
-import ItemView from '../views/ItemView.vue';
+import ItemView from '../views/askDetail.vue';
 Vue.use(VueRouter);
 
 export const router = new VueRouter({
+    //해시 값 삭제
+    mode: 'history',
 
     routes:[
         {
@@ -27,11 +29,12 @@ export const router = new VueRouter({
             component: AskView,
         },
         {
-            path:'/user',
+            // USER VIEW // 유저 상세 페이지로 id 값을 파라미터로 넘김
+            path:'/user/:id',
             component: UserView,
         },
         {
-            path:'/item',
+            path:'/item/:id',
             component: ItemView,
         },
     ]
