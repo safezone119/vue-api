@@ -1,25 +1,16 @@
 <template>
-  <div>
-    <p>name: {{userInfo.id}}</p>
-    <p>karma: {{userInfo.karma}}</p>
-    <p>created: {{userInfo.created}}</p>
-    <!-- <p>{{this.$store.state.user.id}}</p> -->
-  </div>
+<user-profile :propsData = userInfo></user-profile>
 </template>
 
 <script>
-// import axios from 'axios';
-
+import UserProfile from '../components/UserProfile.vue';
 export default {
-  computed:{
-    userInfo(){
-      return this.$store.state.user;
-    },
+  components: {
+    UserProfile,
   },
   created() {
-    // 인덱스에서 받은 파람스 아이디를 API에 태워서 보냄
+    // state에 저장된 유저 데이터 불러와서 user-profile에 보냄
     const userName = this.$route.params.id;
-    // axios.get(`https://api.hnpwa.com/v0/user/${userName}`);
     this.$store.dispatch("fetchUserInfo", userName)
   }
 };

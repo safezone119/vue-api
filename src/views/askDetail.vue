@@ -1,30 +1,14 @@
 <template>
-
-<div>
-    <section>
-        <div>
-            <div class="user-info">
-                <i class="fas fa-user"></i>
-                <router-link :to="`/user/${fetchedAskInfo.user}`">
-                    {{fetchedAskInfo.user}}
-                </router-link>
-                {{fetchedAskInfo.time_ago}}
-            </div>
-            <h2>{{fetchedAskInfo.title}}</h2>
-        </div>
-    </section>
-    <section>
-       <div v-html="fetchedAskInfo.content"></div>
-    </section>
-  
-   
-</div>
-
+<user-profile></user-profile>
 </template>
 
 <script>
+import UserProfile from '../components/UserProfile.vue';
 import { mapGetters } from 'vuex';
 export default {
+    components: {
+        UserProfile,
+    },
     computed:{
        ...mapGetters(['fetchedAskInfo'])
     },
@@ -37,8 +21,4 @@ export default {
 </script>
 
 <style>
-.user-info{
-    padding-top: 50px;
-    display: flex;
-}
 </style>
