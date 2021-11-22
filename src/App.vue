@@ -57,4 +57,8 @@ a.router-link-exact-active{
 .link-text{
   color: #828282;
 }
+.userBox{
+  display: flex;
+  flex-direction: column;
+}
 </style>

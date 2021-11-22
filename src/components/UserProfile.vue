@@ -6,12 +6,16 @@
                 <i class="fas fa-user"></i>
             </div>
             <div class="user-description">
-                <div>{{userInfo.id}}</div>
-                <div class="time">
-                    {{userInfo.created}}
-                </div>
+                <slot name="username"> 
+                  <!-- 상위 컴포넌트에서 정의할 영역 -->
+                </slot>
+                <slot time="time">
+                  <!-- 상위 컴포넌트에서 정의할 영역 -->
+                </slot>
+                <slot name="karma">
+                   <!-- 상위 컴포넌트에서 정의할 영역 -->
+                </slot>
             </div>
-            <h2>{{userInfo.title}}</h2>
         </div>
     </section>
   </div>
@@ -19,10 +23,15 @@
 
 <script>
 export default {
-  computed:{
-    userInfo(){
-      return this.$store.state.user;
-    },
+  // ---- V1 -------- //
+  // computed:{
+  //   userInfo(){
+  //     return this.$store.state.user;
+  //   },
+  // },
+  // --- V2 ----//
+  props: {
+    info: Object
   },
 }
 </script>
@@ -41,5 +50,9 @@ export default {
 }
 .time{
     font-size: 0.7rem;
+}
+.userBox{
+  display: flex;
+  flex-direction: column;
 }
 </style>

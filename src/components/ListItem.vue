@@ -1,9 +1,9 @@
 <template>
     <div>
-    <ul class="list" v-for="item in listItems" :key="item.index">
+    <ul class="list" v-for="(item, index) in listItems" :key="item.index">
       <li>
         <div class="points">
-          {{item.points || "•" }}
+          {{item.points || index +1 }}
         </div>
         <div>
         <!-- 라우터 링크 분기 처리 -->
