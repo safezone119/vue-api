@@ -10,6 +10,8 @@ export default {
                 // commit을 이용하여 setNews에 데이터를 넘김
                 // console.log(response.data)
                 context.commit('SET_NEWS', response.data);
+                //응답 데이터를 화면에 돌려보내어 spinner 처리
+                return response;
             }).catch(error => {
                 console.log(error);
             })

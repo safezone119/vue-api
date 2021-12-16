@@ -1,10 +1,11 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import NewsView from '../views/NewsView.vue';
-import JobsView from '../views/JobsView.vue';
-import AskView from '../views/AskView.vue';
+// import NewsView from '../views/NewsView.vue';
+// import JobsView from '../views/JobsView.vue';
+// import AskView from '../views/AskView.vue';
 import UserView from '../views/UserView.vue';
 import ItemView from '../views/askDetail.vue';
+import createListView from '../views/CreateListView';
 Vue.use(VueRouter);
 
 export const router = new VueRouter({
@@ -18,17 +19,17 @@ export const router = new VueRouter({
         },
         {
             path:'/news',
-            component: NewsView,
+            component: createListView('NewsView'),
             name: "news"
         },
         {
             path:'/jobs',
-            component: JobsView,
+            component: createListView('JobsView'),
             name: "jobs",
         },
         {
             path:'/ask',
-            component: AskView,
+            component: createListView('AskView'),
             name: "ask",
         },
         {
